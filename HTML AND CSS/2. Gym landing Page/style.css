@@ -1,0 +1,88 @@
+*{
+    margin: 0px;
+}    
+body{
+    background: url("bg\ Image.jpg");
+   color: white;
+   font-family: "Oswald", sans-serif
+
+}
+.mid{
+    margin: 20px auto;
+    width: 33%;
+}
+.left{
+    display: inline-block;
+    position: absolute;
+    top: 20px;
+    left: 30px;
+}
+.right{
+    display: inline-block;
+    position: absolute;
+    top: 20px;
+    right: 40px;
+}
+.navbar li{
+    display: inline-block;
+    text-decoration: none;
+    font-size: 20px;
+}
+.navbar li a{
+    color: white;
+    text-decoration: none;
+    padding-right: 34px;
+}
+.navbar li a:hover, .navbar li a.active{
+    text-decoration: underline;
+    color: rgb(196, 180, 180);
+}
+.left{
+    text-align: center;
+    font-size: 22px;
+    line-height: 4px;
+}
+.left img{
+    transform: rotateZ(-45deg);
+    height: 70px;
+}
+.left div{
+    text-align: center;
+}
+.btn{
+    margin: 0px 9px;
+    background-color: black;
+    color: white;
+    border: 2px solid gray;
+    border-radius: 10px;
+    cursor: pointer;
+    padding: 5px 12px;
+    font-family: "Oswald", sans-serif
+}
+.btn:hover{
+    background-color: rgb(58, 56, 56);
+}
+/* Landing Page */
+.hero{
+    border: 2px solid white;
+    border-radius: 5px;
+    margin: 75px 20px;
+    width: 33%;
+    text-align: center;
+    padding: 40px 0px;
+}
+.hero form{
+    margin-top: 20px;
+}
+.hero button{
+    margin-top: 15px;
+    width: 70%;
+    font-size: 18px;
+}
+.forms-group input{
+    font-size: 13px;
+    padding: 5px;
+    width: 50%;
+    margin: 5px;
+    border-radius: 4px;
+}
