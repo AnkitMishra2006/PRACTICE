@@ -1,0 +1,150 @@
+:root{
+    --primaryColor : #ff004f;
+    --txtcolor : #ababab;
+}
+
+
+*{
+    margin: 0;
+    padding: 0;
+}
+body{
+    background-color: rgb(12, 12, 12);
+    color: white;
+}
+.nameFirstLetter{
+    color: red;
+    font-size: 1.5em;
+}
+nav{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    height: 90px;
+    background-color: rgb(13, 0, 0);
+}
+nav ul{
+    display: flex;
+    justify-content: center;
+}
+nav ul li{
+    list-style: none;
+    margin: 0 25px;
+    color: white;    position: relative;
+}
+nav ul li a{
+    text-decoration: none;
+    color: white;   
+    position: relative;
+}
+nav ul li a::after{
+      content: '';
+      width: 0;
+      height: 3px;
+      background-color: var(--primaryColor);
+      position: absolute;
+      left: 0;
+      bottom: -6px;
+      transition: 0.3s;
+}
+nav ul li a:hover::after{
+    font-size: 1.07rem;
+    width: 100%;
+}
+.left{
+    font-size: 1.7rem;
+}
+.firstSection{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 5% 17%;
+}
+
+.leftSection{
+    background-color: rgb(12, 12, 12);
+    font-size: 3rem;
+    width: 50%;
+}
+.rightSection{
+    background-color: rgb(12, 12, 12);
+    justify-content: center;
+}
+.name{
+    color: red;
+}
+.image{
+    display: block;
+    margin: auto;
+    border-radius: 50%;
+    background-color: rgb(37, 37, 37);
+    border: 1px solid white;
+    box-shadow: inset blur;
+}
+/* ------------------- About-------------------------  */
+#about{
+    padding: 8rem;
+    color: var(--txtcolor);
+}
+.row{
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+
+}
+.aboutCol1{
+    flex-basis: 35%;
+}
+.aboutCol1 img{
+    width: 100%;
+    border-radius: 15px;
+}
+.aboutCol2{
+    flex-basis: 60%;
+}
+.aboutCol2.subTitle{
+    font-size: 3rem;
+    font-weight: 600;
+    color: white;
+    margin-bottom: 1rem;
+}
+.tabTitles{
+    display: flex;
+    margin: 1rem 0 2rem ;
+}
+.tabLinks{
+    margin-right: 3rem;
+    font-size: 1.1rem;
+    font-weight: 500;
+    cursor: pointer;
+    position: relative;
+}
+.tabLinks::after{
+    content: "";
+    width: 0;
+    height: 0.2rem;
+    background: var(--primaryColor);
+    position: absolute;
+    left: 0;
+    bottom: -8px;
+    transition: 0.3s;
+}
+.tabLinks.activeLink::after{
+    width: 75%;
+}
+/* .tabContents ul{
+    margin-left: 1rem;
+} */
+.tabContents ul li{
+    list-style: none;
+    margin: 0.7rem 0;
+}
+.tabContents ul li span{
+    color: var(--primaryColor);
+}
+.tabContents{
+    display: none;
+}
+.tabContents.activeTab{
+    display: block;
+}
