@@ -95,7 +95,7 @@ int MTHLinSearch(struct Array* arr, int key)
 }
 int BinSearch(struct Array arr, int key)
 {
-    int mid,l=0,h= arr.length - 1;
+    int mid,l=0,h = arr.length - 1;
     while(l<=h)
     {
         mid = (l+h)/2;
@@ -105,15 +105,19 @@ int BinSearch(struct Array arr, int key)
     }
     return -1;
 }
-int RecBinSearch(struct Array* arr, int l, int h, int key)
+int RecBinSearch(int A[], int l, int h, int key)
 {
     int mid;
+
     if(l<=h)
     {
         mid = (l+h)/2;
-        if (key == arr->A[mid]) return mid;
-        else if (key < arr->A[mid]) RecBinSearch(arr,l,mid-1,key);
-        else RecBinSearch(arr,mid+1,h,key);
+        if (key == A[mid]) 
+            return mid;
+        else if (key < A[mid]) 
+            return RecBinSearch(A,l,mid-1,key);
+        else 
+            return RecBinSearch(A,mid+1,h,key);
     }
     return -1;
 }
@@ -135,8 +139,8 @@ int main()
     //     scanf("%d", &arr.A[i]);
     // }
     // arr.length = n;
-    struct Array arr = {{5,9,2,4,6},20,5};
-    printf("%d", BinSearch(arr,5)) ;
+    struct Array arr = {{2,3,4,5,6},20,5};
+    printf("%d", RecBinSearch(arr.A,0,4,2)) ;
     // Display(arr);
     return 0;
 }
