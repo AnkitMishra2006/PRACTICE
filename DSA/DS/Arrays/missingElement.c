@@ -49,6 +49,24 @@ void mulMissingEle(int a[], int length)
         
     }
 }
+// find multiple missing element in an array of consecutive natural numbers  using hashtable
+void missingEle(int a[], int low, int high, int n)
+{
+    int i;
+    int h[high];
+    for(i = 0; i < high; i++)
+    {
+        h[i] = 0;
+    }
+    for(i = 0; i < n; i++)
+    {
+        h[a[i]]++;
+    }
+    for(i = low; i <= high; i++)
+    {
+        if(h[i]==0) printf("%d ", i);
+    }
+}
 int main()
 {
     return 0;
