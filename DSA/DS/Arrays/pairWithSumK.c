@@ -33,9 +33,25 @@ void pairH(int a[], int length,int low, int high, int k)
         H[a[i]]++;
     }
 }
+// In sorted array Using 2 pointers
+void pair2pt(int a[], int length, int k)
+{
+    int i = 0, j = length - 1;
+    while(i<j)
+    {
+        if(a[i] + a[j] == k)
+        {
+            printf("%d + %d = %d\n", a[i], a[j], k); 
+            i++; 
+            j--;
+        } 
+        else if (a[i] + a[j] < k) i++;
+        else j--;
+    }
+}
 int main()
 {
-    int a[10] = {1,2,3,4,4,3,2,1,5,0};
-    pairH(a,10,0,5,5);
+    int a[10] = {1,3,5,6,8,9,10,12,15,16};
+    pair2pt(a,10,17);
     return 0;
 }
