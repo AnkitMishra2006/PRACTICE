@@ -14,11 +14,24 @@ char* reverse(char s[])
     t[j] = '\0';
     return t;
 }
-
+char* reverse2pt(char* s)
+{
+    int i,j;
+    char t;
+    for(j = 0; s[j] != '\0'; j++){}
+    j = j-1;
+    for(i = 0; i < j; i++,j--)
+    {
+        t = s[i];
+        s[i] = s[j];
+        s[j] = t;
+    }
+    return s;
+}
 int main()
 {
     char s[] = "Python";
-    char* t = reverse(s);
+    char* t = reverse2pt(s);
     printf("%s", t);
     return 0;
 }
