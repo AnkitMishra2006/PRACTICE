@@ -24,9 +24,25 @@ void hashDuplicates(char* a)
     }
 }
 
+void bitsDuplicates(char *a)
+{
+    long int i,h = 0, x = 0;
+    for(i = 0; a[i] != '\0'; i++)
+    {
+        x = 1;
+        x = x<<(a[i] - 97);
+        if((x&h) > 0)
+        {
+            printf("%c is a duplicate\n", a[i]);
+        }
+        else{
+            h = h|x;
+        }
+    }
+}
 int main()
 {   
     char a[] = "naman";
-    hashDuplicates(a);
+    bitsDuplicates(a);
     return 0;
 }
