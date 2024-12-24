@@ -39,6 +39,7 @@ public:
 
     void display();
     int sum();
+    int max(); 
 };
 
 void LinkedList::display()
@@ -62,11 +63,24 @@ int LinkedList::sum()
     return sum;
 }
 
+int LinkedList::max()
+{
+    Node* p = first;
+    int max = p->data;
+    p = p->next;
+    while(p)
+    {
+        if(p->data > max) max = p->data;
+        p = p->next;
+    }
+    return max;
+}
+
 int main()
 {
     int a[5] = {9,5,7,3,1};
     LinkedList l(a, 5);
     l.display();
-    cout<<endl<<l.sum();
+    cout<<endl<<l.max();
     return 0;
 }
