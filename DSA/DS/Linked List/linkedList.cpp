@@ -38,6 +38,7 @@ public:
     }
 
     void display();
+    int sum();
 };
 
 void LinkedList::display()
@@ -45,7 +46,27 @@ void LinkedList::display()
     Node *p = first;
     while(p)
     {
-        cout<< p->data;
+        cout<< p->data<<" ";
         p = p->next;
     }
+}
+int LinkedList::sum()
+{
+    Node* p = first;
+    int sum = 0;
+    while(p)
+    {
+        sum += p->data;
+        p = p->next;
+    }
+    return sum;
+}
+
+int main()
+{
+    int a[5] = {9,5,7,3,1};
+    LinkedList l(a, 5);
+    l.display();
+    cout<<endl<<l.sum();
+    return 0;
 }
