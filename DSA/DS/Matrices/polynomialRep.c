@@ -49,8 +49,8 @@ struct poly* add(struct Poly p1, struct Poly p2)
 
     while(i < p1.n && j < p2.n)
     {
-        if(p1.t[i].exp > p2.t[i].exp) p3->t[k++] = p1.t[i++];
-        else if(p1.t[i].exp < p2.t[i].exp) p3->t[k++] = p2.t[j++];
+        if(p1.t[i].exp > p2.t[j].exp) p3->t[k++] = p1.t[i++];
+        else if(p1.t[i].exp < p2.t[j].exp) p3->t[k++] = p2.t[j++];
         else
         {
             p3->t[k] = p1.t[i++];
