@@ -1,35 +1,51 @@
 #include<iostream>
-#include<stdio.h>
-#include<stdlib.h>
 using namespace std;
 
-struct Node
+typedef struct Node
 {
     int data;
-    struct Node *next;
-}*first=NULL;
+    struct Node* next;
+} Node;
 
-void create(int A[], int n)
+class LinkedList
 {
-    struct Node *t, *last;
-    first = (struct Node *)malloc(sizeof(struct Node));
-    first->data = A[0];
-    first->next = NULL;
-    last = first;
-    for (int i = 1; i < n; i++)
+    Node* first = NULL;
+    Node* last = NULL;
+    int length;
+    
+public:
+
+    LinkedList()
     {
-        t = (struct Node *)malloc(sizeof(struct Node));
-        t->data = A[i];
-        t->next = NULL;
-        last->next = t;
-        last = t
+        length = 0;
     }
-}
-void display(struct Node p)
-{
-    while(p!=NULL)
+    LinkedList(int a[], int n)
     {
-        printf("%d ", p->data);
-        p=p->next;
+        Node* t;
+        first = new Node;
+        first->data = a[0];
+        first->next = NULL;
+        last = first;
+        for (int i = 1; i < n; i++)
+        {
+            t = new Node;
+            t->data = a[i];
+            t->next = NULL;
+            last->next = t;
+            last = t;
+        }
+        length = n;
+    }
+
+    void display();
+};
+
+void LinkedList::display()
+{
+    Node *p = first;
+    while(p)
+    {
+        cout<< p->data;
+        p = p->next;
     }
 }
