@@ -42,6 +42,7 @@ public:
     int max(); 
     int count();
     int getCount();
+    Node * search(int key);
 };
 
 void LinkedList::display()
@@ -92,6 +93,16 @@ int LinkedList::count()
 int LinkedList::getCount()
 {
     return length;
+}
+Node* LinkedList::search(int key)
+{
+    Node* p = first;
+    while(p)
+    {
+        if(key == p->data) return p;
+        p = p->next;
+    }
+    return NULL;
 }
 
 int main()
