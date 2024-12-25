@@ -40,6 +40,8 @@ public:
     void display();
     int sum();
     int max(); 
+    int count();
+    int getCount();
 };
 
 void LinkedList::display()
@@ -75,12 +77,28 @@ int LinkedList::max()
     }
     return max;
 }
+int LinkedList::count()
+{
+    Node* p = first;
+    int count = 0;
+    while(p)
+    {
+        count++;
+        p = p->next;
+    }
+    length = count;
+    return length;
+}
+int LinkedList::getCount()
+{
+    return length;
+}
 
 int main()
 {
     int a[5] = {9,5,7,3,1};
     LinkedList l(a, 5);
     l.display();
-    cout<<endl<<l.max();
+    cout<<endl<<l.count();
     return 0;
 }
