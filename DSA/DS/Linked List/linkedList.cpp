@@ -44,6 +44,7 @@ public:
     int getCount();
     Node * search(int key);
     Node* MTHsearch(int key); //Better Linear Search Using Move to head avoid transposition as we dont want to move data in a LL but nodes
+    void insert(int pos, int value);
 };
 
 void LinkedList::display()
@@ -51,9 +52,11 @@ void LinkedList::display()
     Node *p = first;
     while(p)
     {
-        cout<< p->data<<" ";
+        cout<<"["<<p->data<<","<<p->next<<"]";
+        if(p->next) cout<<" -> ";
         p = p->next;
     }
+    cout<<endl;
 }
 int LinkedList::sum()
 {
@@ -125,11 +128,44 @@ Node* LinkedList::MTHsearch(int key)
     return NULL;
 }
 
+void LinkedList::insert(int pos, int value)
+{
+    Node* t = new Node;
+    t->data = value;
+    Node* p = first;
+    if(pos == 0)
+    {
+        t->next = first;
+        first = t;
+        length++;
+    }
+    else if(pos > 0)
+    {
+        int i;
+        for(i = 0; i < pos - 1; i++)
+        {
+            p = p->next;
+        }
+        if(p)
+        {
+            t->next = p->next;
+            p->next = t;
+        }
+        length++;
+    }
+    else cout<<"Invalid Position";
+}
 int main()
 {
-    int a[5] = {9,5,7,3,1};
-    LinkedList l(a, 5);
+    // int a[5] = {9,5,7,3,1};
+    // LinkedList l(a, 5);
+    LinkedList l;
     l.display();
-    cout<<endl<<l.MTHsearch(7);
+    cout<<l.getCount()<<endl;
+    l.insert(0,4);
+    l.insert(1,2);
+    l.insert(2,5);
+    l.display();
+    cout<<l.getCount();
     return 0;
 }
