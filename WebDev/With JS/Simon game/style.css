@@ -1,17 +1,18 @@
 *{
     margin: 0;
     padding: 0;
+    text-align: center;
 }
 body{
     background-color: antiquewhite;
 }
 #gameTitle{
-    text-align: center;
+    
     font-size: 3rem;
     
 }
 #message{
-    text-align: center;
+    
     margin: 1.5rem;
 
 }
@@ -21,12 +22,12 @@ body{
     
 }
 .btn{
-    border: 2px solid black;
-    border-radius: 1rem;
+    border: 0.5rem solid black;
+    border-radius: 2rem;
     height: 11rem;
     width: 11rem;
     margin: 1rem;
-    text-align: center;
+    
 }
 .red{
     background-color: rgb(190, 110, 110);
@@ -39,4 +40,8 @@ body{
 }
 .green{
     background-color: rgb(70, 175, 140);
+}
+.flash
+{
+    background-color: white;
 }
