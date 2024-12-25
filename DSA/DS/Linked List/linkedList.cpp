@@ -43,6 +43,7 @@ public:
     int count();
     int getCount();
     Node * search(int key);
+    Node* MTHsearch(int key); //Better Linear Search Using Move to head avoid transposition as we dont want to move data in a LL but nodes
 };
 
 void LinkedList::display()
@@ -105,11 +106,30 @@ Node* LinkedList::search(int key)
     return NULL;
 }
 
+Node* LinkedList::MTHsearch(int key)
+{
+    Node* p = first;
+    Node* q = NULL;
+    while(p)
+    {
+        if(key == p->data)
+        {
+            q->next = p->next;
+            p->next = first;
+            first = p;
+            return first;
+        };
+        q = p;
+        p = p->next;
+    }
+    return NULL;
+}
+
 int main()
 {
     int a[5] = {9,5,7,3,1};
     LinkedList l(a, 5);
     l.display();
-    cout<<endl<<l.count();
+    cout<<endl<<l.MTHsearch(7);
     return 0;
 }
