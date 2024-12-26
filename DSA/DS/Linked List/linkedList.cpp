@@ -46,6 +46,7 @@ public:
     Node* MTHsearch(int key); //Better Linear Search Using Move to head avoid transposition as we dont want to move data in a LL but nodes
     void insert(int pos, int value);
     void insertLast(int value);
+    void removeDuplicates();
 };
 
 void LinkedList::display()
@@ -169,6 +170,27 @@ void LinkedList::insertLast(int value)
         last->next = t;
         last = t;
     } 
+    length++;
+}
+
+void LinkedList::removeDuplicates()
+{
+    Node* p = first;
+    Node* q = first->next;
+
+    while(q!=NULL)
+    {
+        if(p->data == q->data)
+        {
+            p->next = q->next;
+            delete q;
+            q = p->next;
+        }
+        else{
+            p = q;
+            q = q->next;
+        }
+    }
 }
 int main()
 {
