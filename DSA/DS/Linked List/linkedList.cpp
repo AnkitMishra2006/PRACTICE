@@ -194,15 +194,16 @@ void LinkedList::removeDuplicates()
 }
 int main()
 {
-    // int a[5] = {9,5,7,3,1};
-    // LinkedList l(a, 5);
-    LinkedList l;
+    int a[7] = {9,5,5,3,1,1,1};
+    LinkedList l(a, 7);
+    // LinkedList l;
     l.display();
-    cout<<l.getCount()<<endl;
-    l.insert(0,4);
-    l.insert(1,2);
-    l.insert(2,5);
+    // cout<<l.getCount()<<endl;
+    // l.insert(0,4);
+    // l.insert(1,2);
+    // l.insert(2,5);
+    // l.display();
+    l.removeDuplicates();
     l.display();
-    cout<<l.getCount();
     return 0;
 }
