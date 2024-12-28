@@ -5,10 +5,9 @@ document.querySelector('.delete').addEventListener('click', () => {
     display.value = currentValue;
 
 })
-document.querySelector('.delete').addEventListener('click', () => {
-    currentValue = currentValue.slice(0,-1);
+document.querySelector('.clear').addEventListener('click', () => {
+    currentValue = '';
     display.value = currentValue;
-
 })
 function addCurrentValue()
 {
@@ -23,4 +22,7 @@ for(let i = 0; i<btns.length; i++)
     btns[i].addEventListener('click', addCurrentValue);
 }
 
-
+document.querySelector('.evaluate').addEventListener('click', () => {
+    currentValue = eval(currentValue);
+    display.value = currentValue;
+})
