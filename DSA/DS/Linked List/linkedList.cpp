@@ -216,18 +216,29 @@ void LinkedList::reverse()
     }
     first = q;
 }
+
+void LinkedList::concat(LinkedList l)
+{
+    Node *p = this->first;
+    while (p->next != NULL)
+    {
+        p = p->next;
+    }
+    p->next = l.first;
+    l.first = NULL;
+}
 int main()
 {
     int a[7] = {9, 5, 5, 3, 1, 1, 1};
     LinkedList l(a, 7);
-    // LinkedList l;
-    l.display();
-    // cout<<l.getCount()<<endl;
-    // l.insert(0,4);
-    // l.insert(1,2);
-    // l.insert(2,5);
+    LinkedList l1;
     // l.display();
-    l.reverse();
+    // cout<<l.getCount()<<endl;
+    l1.insert(0, 4);
+    l1.insert(1, 2);
+    l1.insert(2, 5);
+    // l.display();
+    l.concat(l1);
     l.display();
     return 0;
 }
