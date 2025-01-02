@@ -53,6 +53,7 @@ public:
     void removeDuplicates();
     void reverse();
     void concat(LinkedList l1);
+    Node *mid();
     friend Node *merge(LinkedList l1, LinkedList l2);
 };
 
@@ -281,15 +282,30 @@ Node *merge(LinkedList l1, LinkedList l2)
     return third;
 }
 
+Node *LinkedList::mid()
+{
+    Node *p = this->first;
+    Node *q = this->first;
+    while (q)
+    {
+        q = q->next;
+        if (q)
+            q = q->next;
+        if (q)
+            p = p->next;
+    }
+    return p;
+}
 int main()
 {
-    int a[4] = {2, 8, 10, 15};
-    LinkedList l1(a, 4);
-    int b[4] = {4, 7, 12, 14};
-    LinkedList l2(b, 4);
-    l1.display();
-    l2.display();
-    LinkedList l3(merge(l1, l2));
-    l3.display();
+    int a[6] = {2, 8, 10, 15, 7, 9};
+    LinkedList l1(a, 6);
+    // int b[4] = {4, 7, 12, 14};
+    // LinkedList l2(b, 4);
+    // l1.display();
+    // l2.display();
+    // LinkedList l3(merge(l1, l2));
+    // l3.display();
+    cout << (l1.mid())->data;
     return 0;
 }
