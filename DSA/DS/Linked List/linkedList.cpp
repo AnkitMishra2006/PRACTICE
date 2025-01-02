@@ -18,6 +18,11 @@ public:
     {
         length = 0;
     }
+    LinkedList(Node *head)
+    {
+        first = head;
+        length = this->count();
+    }
     LinkedList(int a[], int n)
     {
         Node *t;
@@ -48,6 +53,7 @@ public:
     void removeDuplicates();
     void reverse();
     void concat(LinkedList l1);
+    friend Node *merge(LinkedList l1, LinkedList l2);
 };
 
 void LinkedList::display()
@@ -227,18 +233,63 @@ void LinkedList::concat(LinkedList l)
     p->next = l.first;
     l.first = NULL;
 }
+
+Node *merge(LinkedList l1, LinkedList l2)
+{
+    Node *third = NULL;
+    Node *last = third;
+    Node *first = l1.first;
+    Node *second = l2.first;
+    if (first->data <= second->data)
+    {
+        third = last = first;
+        first = first->next;
+        last->next = NULL;
+    }
+    else
+    {
+        third = last = second;
+        second = second->next;
+        last->next = NULL;
+    }
+
+    while (first && second)
+    {
+        if (first->data < second->data)
+        {
+            last->next = first;
+            last = first;
+            first = first->next;
+            last->next = NULL;
+        }
+        else
+        {
+            last->next = second;
+            last = second;
+            second = second->next;
+            last->next = NULL;
+        }
+    }
+    if (first)
+    {
+        last->next = first;
+    }
+    else
+    {
+        last->next = second;
+    }
+    return third;
+}
+
 int main()
 {
-    int a[7] = {9, 5, 5, 3, 1, 1, 1};
-    LinkedList l(a, 7);
-    LinkedList l1;
-    // l.display();
-    // cout<<l.getCount()<<endl;
-    l1.insert(0, 4);
-    l1.insert(1, 2);
-    l1.insert(2, 5);
-    // l.display();
-    l.concat(l1);
-    l.display();
+    int a[4] = {2, 8, 10, 15};
+    LinkedList l1(a, 4);
+    int b[4] = {4, 7, 12, 14};
+    LinkedList l2(b, 4);
+    l1.display();
+    l2.display();
+    LinkedList l3(merge(l1, l2));
+    l3.display();
     return 0;
 }

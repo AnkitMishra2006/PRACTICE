@@ -4,5 +4,6 @@
         "ANAGRAM.C": "cpp",
         "ostream": "cpp",
         "new": "cpp"
-    }
+    },
+    "C_Cpp.errorSquiggles": "enabled"
 }
