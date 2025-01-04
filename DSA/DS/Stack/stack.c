@@ -16,6 +16,16 @@ void create(Stack * st)
     st->s = (int*) malloc(st->size * sizeof(int));
 
 }
+void display(Stack st)
+{
+    int i;
+    for (int i = st.top; i < 0; i--)
+    {
+        printf("\n%d", st.s[i]);
+    }
+    printf("\n");
+}
+
 int main()
 {
 
