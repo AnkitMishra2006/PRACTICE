@@ -50,6 +50,17 @@ void push(Stack *st, int value)
         st->s[st->top] = value;
     }
 }
+int peek(Stack st, int pos)
+{
+    int x = -1;
+    if ((st.top - pos + 1) < 0)
+        printf("Invalid index\n");
+    else
+    {
+        x = st.s[st.top - pos + 1];
+    }
+    return x;
+}
 int main()
 {
     Stack st;
@@ -60,9 +71,9 @@ int main()
     push(&st, 9);
     push(&st, 8);
     display(st);
-    int x = pop(&st);
-    printf("\nPopped Item: %d\n", x);
-    pop(&st);
+    printf("Element at pos 1: %d", peek(st, 1));
+    printf("\nPopped Item: %d\n", pop(&st));
     display(st);
+    printf("Element at pos 1: %d", peek(st, 1));
     return 0;
 }
