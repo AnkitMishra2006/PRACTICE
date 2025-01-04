@@ -8,13 +8,12 @@ typedef struct Stack
     int *s;
 } Stack;
 
-void create(Stack * st)
+void create(Stack *st)
 {
     printf("Enter the size of Stack: ");
     scanf("%d", &st->size);
     st->top = -1;
-    st->s = (int*) malloc(st->size * sizeof(int));
-
+    st->s = (int *)malloc(st->size * sizeof(int));
 }
 void display(Stack st)
 {
@@ -26,6 +25,18 @@ void display(Stack st)
     printf("\n");
 }
 
+void push(Stack *st, int value)
+{
+    if (st->top == st->size - 1)
+    {
+        printf("Stack Overflow\n");
+    }
+    else
+    {
+        st->top++;
+        st->s[st->top] = value;
+    }
+}
 int main()
 {
 
