@@ -1,6 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
-
+#include <stdbool.h>
 typedef struct Stack
 {
     int size;
@@ -61,19 +61,24 @@ int peek(Stack st, int pos)
     }
     return x;
 }
-int isEmpty(Stack st)
+bool isEmpty(Stack st)
 {
     if (st.top == -1)
-        return 1;
-    return 0;
+        return true;
+    return false;
 }
-int isFull(Stack st)
+bool isFull(Stack st)
 {
     if (st.top == st.size - 1)
-        return 1;
-    return 0;
+        return true;
+    return false;
 }
-
+int stackTop(Stack st)
+{
+    if (!isEmpty(st))
+        return st.s[st.top];
+    return false;
+}
 int main()
 {
     Stack st;
