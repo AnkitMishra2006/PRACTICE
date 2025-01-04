@@ -61,6 +61,11 @@ int peek(Stack st, int pos)
     }
     return x;
 }
+int isEmpty(Stack st)
+{
+    if(st.top == -1) return 1;
+    return 0;
+}
 int main()
 {
     Stack st;
