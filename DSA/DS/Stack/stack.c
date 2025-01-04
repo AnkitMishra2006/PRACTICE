@@ -25,6 +25,19 @@ void display(Stack st)
     printf("\n");
 }
 
+int pop(Stack *st)
+{
+    int x = NULL;
+    if (st->top == -1)
+    {
+        printf("Stack Underflow\n");
+    }
+    else
+    {
+        x = st->s[st->top--];
+    }
+    return x;
+}
 void push(Stack *st, int value)
 {
     if (st->top == st->size - 1)
@@ -39,6 +52,5 @@ void push(Stack *st, int value)
 }
 int main()
 {
-
     return 0;
 }
