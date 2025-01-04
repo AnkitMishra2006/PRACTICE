@@ -18,16 +18,16 @@ void create(Stack *st)
 void display(Stack st)
 {
     int i;
-    for (int i = st.top; i < 0; i--)
+    for (int i = 0; i <= st.top; i++)
     {
-        printf("\n%d", st.s[i]);
+        printf("%d ", st.s[i]);
     }
     printf("\n");
 }
 
 int pop(Stack *st)
 {
-    int x = NULL;
+    int x = -1;
     if (st->top == -1)
     {
         printf("Stack Underflow\n");
@@ -52,5 +52,17 @@ void push(Stack *st, int value)
 }
 int main()
 {
+    Stack st;
+    create(&st);
+    push(&st, 5);
+    push(&st, 6);
+    push(&st, 1);
+    push(&st, 9);
+    push(&st, 8);
+    display(st);
+    int x = pop(&st);
+    printf("\nPopped Item: %d\n", x);
+    pop(&st);
+    display(st);
     return 0;
 }
