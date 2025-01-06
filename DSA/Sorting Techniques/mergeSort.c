@@ -61,12 +61,22 @@ void IMergeSort(int a[], int n)
     }
 }
 
+void MergeSort(int a[], int l, int h)
+{
+    if (l < h)
+    {
+        int mid = (l + h) / 2;
+        MergeSort(a, l, mid);
+        MergeSort(a, mid + 1, h);
+        merge(a, l, mid, h);
+    }
+}
 int main()
 {
     int a[] = {5, 6, 2, 9, 0, 1};
     int n = sizeof(a) / sizeof(a[0]);
     display(a, n);
-    IMergeSort(a, n);
+    MergeSort(a, 0, n - 1);
     display(a, n);
     return 0;
 }
