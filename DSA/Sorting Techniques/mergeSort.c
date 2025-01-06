@@ -42,12 +42,31 @@ void merge(int a[], int l, int mid, int h)
     }
 }
 
+void IMergeSort(int a[], int n)
+{
+    int p, l, h, mid, i;
+    for (p = 2; p <= n; p *= 2)
+    {
+        for (i = 0; i + p - 1 < n; i += p)
+        {
+            l = i;
+            h = i + p - 1;
+            mid = (l + h) / 2;
+            merge(a, l, mid, h);
+        }
+    }
+    if (p / 2 < n)
+    {
+        merge(a, 0, (p / 2) - 1, n - 1);
+    }
+}
+
 int main()
 {
     int a[] = {5, 6, 2, 9, 0, 1};
     int n = sizeof(a) / sizeof(a[0]);
     display(a, n);
-    SelectionSort(a, n);
+    IMergeSort(a, n);
     display(a, n);
     return 0;
 }
