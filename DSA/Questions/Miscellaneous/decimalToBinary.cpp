@@ -1,3 +1,4 @@
+#include <iomanip>
 #include <iostream>
 using namespace std;
 
@@ -11,12 +12,20 @@ void DtoB(int decNum)
         ans += (rem * pow);
         pow *= 10;
     }
-    cout << ans;
+    cout << setw(10) << right << ans << endl;
+}
+void DectoBinary(int decNum)
+{
+    int i;
+    for (i = 0; i <= decNum; i++)
+    {
+        DtoB(i);
+    }
 }
 
 int main()
 {
-    int n = 10;
-    DtoB(n);
+    int n = 100;
+    DectoBinary(n);
     return 0;
 }
