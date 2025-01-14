@@ -70,6 +70,7 @@ app.get("/user/:id/edit", (req, res) => {
     connection.query(q, (err, result) => {
       if (err) throw err;
       let user = result[0];
+      console.log(user);
       res.render("edit.ejs", { user });
     });
   } catch {
@@ -80,8 +81,28 @@ app.get("/user/:id/edit", (req, res) => {
 
 // UPDATE (DB) Route
 app.patch("/user/:id", (req, res) => {
-  res.send("updated");
-})
+  let { id } = req.params;
+  let { password: formPass, username: newUsername } = req.body;
+  let q = `SELECT * FROM user WHERE id = '${id}'`;
+  try {
+    connection.query(q, (err, result) => {
+      if (err) throw err;
+      let user = result[0];
+      if (formPass != user.password) res.send("Wrong Password");
+      else {
+        let q = `UPDATE user SET username='${newUsername}' WHERE id = '${id}'`;
+        connection.query(q, (err, result) => {
+          if (err) throw err;
+          res.redirect("/user");
+        });
+      }
+    });
+  } catch {
+    console.log(err);
+    res.send("Some error in database");
+  }
+  // res.send("updated");
+});
 
 app.listen("8080", () => {
   console.log("Server running on port 8080");
