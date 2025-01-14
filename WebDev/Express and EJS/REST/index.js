@@ -70,6 +70,13 @@ app.patch("/posts/:id", (req, res) => {
   console.log(id);
 });
 
+app.delete("/posts/:id", (req, res) => {
+  let { id } = req.params;
+  posts = posts.filter((p) => id !== p.id);
+  console.log(posts);
+  res.redirect("/posts");
+});
+
 const port = 8080;
 app.listen(port, () => {
   console.log(`listening to port: ${port}`);
