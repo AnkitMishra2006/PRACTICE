@@ -1,4 +1,18 @@
+const { faker } = require("@faker-js/faker");
+const express = require("express");
+const app = express();
 const mongoose = require("mongoose");
+const path = require("path");
+const methodOverride = require("method-override");
+const Chat = require("./models/chat.js");
+
+app.use(methodOverride("_method"));
+app.use(express.urlencoded({ extended: true }));
+app.use(express.json());
+app.use(express.static(path.join(__dirname, "public")));
+
+app.set("view engine", "ejs");
+app.set("views", path.join(__dirname, "views"));
 
 // mongoose.connect("mongodb://127.0.0.1:27017/test");
 
@@ -9,15 +23,17 @@ main()
   .catch((err) => console.log(err));
 
 async function main() {
-  await mongoose.connect("mongodb://127.0.0.1:27017/test");
+  await mongoose.connect("mongodb://127.0.0.1:27017/whatsapp");
 
   // use `await mongoose.connect('mongodb://user:password@127.0.0.1:27017/test');` if your database has auth enabled
 }
 
-const userSchema = new mongoose.Schema({
-  name: String,
-  email: String,
-  age: Number,
+app.get("/", (req, res) => {
+  res.send("Root is working working");
 });
 
-const User = mongoose.model("User", userSchema);
+const port = 8080;
+
+app.listen(port, () => {
+  console.log(`Server running on Port: ${port}`);
+});
